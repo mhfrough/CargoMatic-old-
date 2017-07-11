@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Login
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form" method="POST" action="http://localhost:8000/auth/register">
+            <input type="hidden" name="_token" value="dYPuS7mefRVdZRtiB49pjf0gOSjRx3quu3IKzX8u">
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">E-Mail Address</p>
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">Password</p>
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password">
+              </div>
+            </div>
+
+            <div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+								<button type="submit" class="btn btn-default">Login</button>
+
+								<a class="btn btn-link" href="http://localhost:8000/password/email">Forgot Your Password?</a>
+							</div>
+						</div>
+          </form>
+          <hr/>
+          <div class="form-group">
+            <p class="col-md-4 col-md-offset-4 control-label">Client can login from these Social Networks.</p>
+          </div>
+          <div class="col-md-8 col-md-offset-4">
+            <button class="btn btn-primary" (click)="login()">Login With Facebook</button>
+            <button class="btn btn-danger" (click)="login()">Login With Google</button>
+            <button class="btn btn-dark" (click)="login()">Login With Github</button>
+          </div>
+          <br/><br/><br/>
+          <hr/>
+          <div class="form-group">
+            <a><p class="col-md-4 col-md-offset-4 control-label" (click)="redirectToRegister()">Not a member? Click here to register</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

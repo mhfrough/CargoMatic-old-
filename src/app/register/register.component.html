@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Register
+        </div>
+        <div class="panel-body">
+          <form class="form-horizontal" role="form" method="POST" action="http://localhost:8000/auth/register">
+            <input type="hidden" name="_token" value="dYPuS7mefRVdZRtiB49pjf0gOSjRx3quu3IKzX8u">
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">Name</p>
+              <div class="col-md-6">
+                <input type="text" class="form-control" name="name" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">E-Mail Address</p>
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" value="">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">Password</p>
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">Confirm Password</p>
+              <div class="col-md-6">
+                <input type="password" class="form-control" name="password_confirmation">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="col-md-4 control-label">Accept Terms</p>
+              <div class="col-md-6">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" required> check this
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-4">
+                <button type="submit" class="btn btn-primary">
+                  Register
+                </button>
+              </div>
+            </div>
+          </form>
+          <hr/>
+          <div class="form-group">
+            <a><p class="col-md-4 col-md-offset-4 control-label" (click)="redirectToLogin()">Already a member? Click here to Login</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
