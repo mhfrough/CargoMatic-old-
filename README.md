@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.5.
 
+For styling [Bootstrap](getbootstrap.com) version 3.3.7.
+
 ## Installation
 
 Clone project and open terminal in project dorectory.
