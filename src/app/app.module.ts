@@ -16,6 +16,8 @@ import { AuthService } from './providers/auth.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ProfileComponent } from './profile/profile.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCyRKM45mFgObkteIa-pajuZsMTfUt-LyA",
@@ -33,14 +35,16 @@ export const firebaseConfig = {
     ContactComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routes,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [AngularFireAuth, AuthService],
   bootstrap: [AppComponent]

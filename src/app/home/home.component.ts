@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '.././providers/auth.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-home',
@@ -13,5 +14,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     console.log(this._auth.displayName);
   }
-
 }

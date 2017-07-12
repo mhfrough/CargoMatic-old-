@@ -24,7 +24,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn">
-          <li><a routeLink="profile">{{ _auth.displayName }}</a></li>
+          <li><a routerLink="profile">{{ _auth.displayName }}</a></li>
+          <li *ngIf="!adminLog"><a routerLink="profile">{{ _auth.emailAddress }}</a></li>
           <li>
             <a href="#" (click)="logout()">Logout</a>
           </li>

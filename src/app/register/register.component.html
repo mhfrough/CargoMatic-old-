@@ -6,27 +6,27 @@
           Register
         </div>
         <div class="panel-body">
-          <form class="form-horizontal" role="form" method="POST" action="http://localhost:8000/auth/register">
+          <form class="form-horizontal" role="form" method="POST" (ngSubmit)="adminLogin(name.value, email.value, password.value)">
             <input type="hidden" name="_token" value="dYPuS7mefRVdZRtiB49pjf0gOSjRx3quu3IKzX8u">
 
             <div class="form-group">
               <p class="col-md-4 control-label">Name</p>
               <div class="col-md-6">
-                <input type="text" class="form-control" name="name" value="">
+                <input type="text" class="form-control" name="name" value="" #name>
               </div>
             </div>
 
             <div class="form-group">
               <p class="col-md-4 control-label">E-Mail Address</p>
               <div class="col-md-6">
-                <input type="email" class="form-control" name="email" value="">
+                <input type="email" class="form-control" name="email" value="" #email>
               </div>
             </div>
 
             <div class="form-group">
               <p class="col-md-4 control-label">Password</p>
               <div class="col-md-6">
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" #password>
               </div>
             </div>
 

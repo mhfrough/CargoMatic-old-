@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Subject } from 'rxjs/Subject';
 
 import * as firebase from 'firebase/app';
 
@@ -9,13 +11,13 @@ export class AuthService {
   public displayName;
   public emailAddress;
 
-  constructor(public af: AngularFireAuth) {
+  constructor(public af: AngularFireAuth, public db: AngularFireDatabase) {
     af.authState.subscribe((user: firebase.User) => {
       if (!user) {
         this.displayName = null;
         return;
       }
-      this.displayName = user.displayName;      
+      this.displayName = user.displayName;
     });
   }
 
@@ -25,6 +27,22 @@ export class AuthService {
 
   loginWithGoogle(){
     return this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  loginWithEmail(email: string, password: string) {
+    return this.af.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  registerAdmin(email: string, password: string) {
+    console.log(email,password);
+    return this.af.auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  saveAdminInfo(uid, name, email) {
+    return this.db.database.ref('registeredUsers/' + uid).set({
+      name: name,
+      email: email
+    });
   }
 
   logout() {

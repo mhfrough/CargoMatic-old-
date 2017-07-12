@@ -8,8 +8,8 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  displayName;
   isLoggedIn: boolean;
+  adminLog: boolean;
   constructor(public _auth: AuthService, private router: Router) {
     this._auth.af.authState.subscribe(
       (auth) => {
@@ -20,8 +20,14 @@ export class AppComponent {
         }
         else {
           console.log("Successfully Logged in.");
-          this._auth.displayName = auth.displayName;
-          this._auth.emailAddress = auth.email;
+          if(auth.linkWithPopup){
+            this._auth.displayName = auth.displayName;
+            this._auth.emailAddress = auth.email;
+          } else {
+            this._auth.displayName = auth.email;
+            this._auth.emailAddress = auth.email;
+            this.adminLog = true;
+          }
           this.isLoggedIn = true;
         }
       }

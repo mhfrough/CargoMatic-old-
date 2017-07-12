@@ -19,6 +19,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  adminLogin(email: string, password: string) {
+    this._auth.loginWithEmail(email, password).then((data) => {
+      this.router.navigate(['']);
+    });
+  }
+
   redirectToRegister(){
     this.router.navigate(['register']);
   }
