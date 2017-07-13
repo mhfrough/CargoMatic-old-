@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     if(!this._auth.af.auth.currentUser.displayName){
-      this.router.navigate(['']);
+      this._auth.displayName = this._auth.getName;
     }
   }
 
