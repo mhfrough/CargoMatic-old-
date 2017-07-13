@@ -18,14 +18,32 @@
         <li>
           <a routerLink="about">About</a>
         </li>
-        <li>
+        <li *ngIf="!adminLog">
           <a routerLink="contact">Contact</a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn">
-          <li><a routerLink="profile">{{ _auth.displayName }}</a></li>
-          <li *ngIf="!adminLog"><a routerLink="profile">{{ _auth.emailAddress }}</a></li>
+          <li *ngIf="!adminLog" dropdown>
+            <a dropdownToggle>{{ _auth.displayName }} <span class="caret"></span></a>
+            <ul *dropdownMenu class="dropdown-menu">
+              <li><a routerLink="profile">Profile</a></li>
+              <li><a routerLink="main">Main Dashboard</a></li>
+              <li class="disabled"><a routerLink="main">View Package History</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a href="#">Settings</a></li>
+            </ul>
+          </li>
+          <li *ngIf="adminLog" dropdown>
+            <a dropdownToggle>{{ _auth.getName }} <span class="caret"></span></a>
+            <ul *dropdownMenu class="dropdown-menu">
+              <li><a routerLink="profile">Profile</a></li>
+              <li><a routerLink="main">Main Dashboard</a></li>
+              <li class="disabled"><a routerLink="main">Administration Panel</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a href="#">Settings</a></li>
+            </ul>
+          </li>
           <li>
             <a href="#" (click)="logout()">Logout</a>
           </li>

@@ -20,13 +20,14 @@ export class AppComponent {
         }
         else {
           console.log("Successfully Logged in.");
-          if(auth.linkWithPopup){
+          if(this._auth.af.auth.currentUser.displayName){
+            this.adminLog =  false;
             this._auth.displayName = auth.displayName;
             this._auth.emailAddress = auth.email;
           } else {
-            this._auth.displayName = auth.email;
-            this._auth.emailAddress = auth.email;
             this.adminLog = true;
+            this._auth.displayName = _auth.getName;
+            this._auth.emailAddress = auth.email;
           }
           this.isLoggedIn = true;
         }

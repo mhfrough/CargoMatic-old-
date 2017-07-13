@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from "./profile/profile.component";
+import { MainComponent } from "./main/main.component";
 
 export const router: Routes = [
     { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ export const router: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'profile', component: ProfileComponent }
+    { path: 'profile', component: ProfileComponent },
+    { path: 'main', component: MainComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

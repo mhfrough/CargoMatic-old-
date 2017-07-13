@@ -21,3 +21,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Pages (Home, About, Contact, Profile)
 
 Authentication (Email and Google)
+
+Push and Pop (User data: name, email)

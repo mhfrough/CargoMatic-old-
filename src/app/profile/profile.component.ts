@@ -11,6 +11,9 @@ export class ProfileComponent implements OnInit {
   constructor(public _auth: AuthService) { }
 
   ngOnInit() {
+    if(!this._auth.af.auth.currentUser.displayName){
+      this._auth.displayName = this._auth.getName;
+    }
   }
 
 }

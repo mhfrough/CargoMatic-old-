@@ -10,6 +10,8 @@ export class AuthService {
 
   public displayName;
   public emailAddress;
+  public readRegisterUser;
+  public getName: any;
 
   constructor(public af: AngularFireAuth, public db: AngularFireDatabase) {
     af.authState.subscribe((user: firebase.User) => {
@@ -18,6 +20,9 @@ export class AuthService {
         return;
       }
       this.displayName = user.displayName;
+      this.readRegisterUser = this.db.database.ref('registeredUsers/' + user.uid + '/name').on('value', snapshot => {
+        this.getName = snapshot.val();
+      });
     });
   }
 
@@ -44,7 +49,6 @@ export class AuthService {
       email: email
     });
   }
-
   logout() {
     return this.af.auth.signOut();
   }

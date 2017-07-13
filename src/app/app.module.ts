@@ -18,6 +18,10 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ProfileComponent } from './profile/profile.component';
+import { MainComponent } from './main/main.component';
+
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { TabsModule } from 'ngx-bootstrap';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCyRKM45mFgObkteIa-pajuZsMTfUt-LyA",
@@ -36,7 +40,8 @@ export const firebaseConfig = {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,9 @@ export const firebaseConfig = {
     HttpModule,
     routes,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [AngularFireAuth, AuthService],
   bootstrap: [AppComponent]
