@@ -7,10 +7,137 @@
         </div>
         <div class="panel-body">
           <tabset>
-            <tab heading="Cargo" class="p-tap">
-              Cargo tab works!
+            <tab heading="Shipping" class="p-tap">
+              <form class="form-horizontal" role="form" method="POST" (ngSubmit)="shipping(origion.value, destination.value, address.value, type.value, size.value, total.value, departing.value, reciving.value, pioraty.value, information.value)">
+                <input type="hidden" name="_token" value="dYPuS7mefRVdZRtiB49pjf0gOSjRx3quu3IKzX8u">
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">Origion to Destination</p>
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <select class="form-control" name="origion" #origion>
+                        <option value="karachi">karachi</option>
+                        <option value="Gwadar">Gwadar</option>
+                        <option value="Chiniot">Chiniot</option>
+                        <option value="Swabi">Swabi</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-3">
+                      <select class="form-control fca" name="destination" #destination>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Peshawar">Peshawar</option>
+                        <option value="Hariur">Haripur</option>
+                        <option value="Quetta">Quetta</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">Route Destination</p>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" name="address" #address placeholder="Address">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">Load Details</p>
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <select class="form-control" name="type" #type>
+                        <option>Item Type</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Food">Food</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-2">
+                      <select class="form-control fca" name="size" #size>
+                        <option>Item Size</option>
+                        <option value="Less then 10KG">Less then 10KG</option>
+                        <option value="In Between 10-25KG">In Between 10-25KG</option>
+                        <option value="More then 25KG">More then 25KG</option>
+                        <option value="Undefined">Undefined</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-2">
+                      <input type="number" class="form-control fcab" name="total" #total placeholder="Total Item">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">Departing and Reciving On</p>
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <input type="date" class="form-control" name="departing" #departing>
+                    </div>
+                    <div class="col-xs-3">
+                      <input type="date" class="form-control fca" name="reciving" #reciving>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">Pioraty</p>
+                  <div class="col-md-6">
+                    <select class="form-control" name="pioraty" #pioraty>
+                      <option value="Urgent">Urgent</option>
+                      <option value="Normal">Noraml</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p class="col-md-4 control-label">More Information</p>
+                  <div class="col-md-6">
+                    <textarea class="form-control" rows="5" name="information" #information></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 col-md-offset-4">
+                      <button type="submit" class="btn btn-primary">Confirm Process</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </tab>
-            <tab heading="Package" disabled=true></tab>
+            <tab heading="Package">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>origion</th>
+                    <th>destination</th>
+                    <th>address</th>
+                    <th>type</th>
+                    <th>size</th>
+                    <th>total</th>
+                    <th>departing</th>
+                    <th>reciving</th>
+                    <th>pioraty</th>
+                    <th>information</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items | async">
+                    <td>{{ item.origion }}</td>
+                    <td>{{ item.destination }}</td>
+                    <td>{{ item.address }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.size }}</td>
+                    <td>{{ item.total }}</td>
+                    <td>{{ item.departing }}</td>
+                    <td>{{ item.reciving }}</td>
+                    <td>{{ item.pioraty }}</td>
+                    <td>{{ item.information }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </tab>
             <tab heading="Details" disabled=true></tab>
           </tabset>
       </div>

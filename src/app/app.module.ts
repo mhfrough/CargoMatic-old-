@@ -22,6 +22,7 @@ import { MainComponent } from './main/main.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
+import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCyRKM45mFgObkteIa-pajuZsMTfUt-LyA",
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    MainComponent
+    MainComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

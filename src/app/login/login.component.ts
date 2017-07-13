@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   constructor(public _auth: AuthService, public router:Router, public app: AppComponent) { }
 
   login() {
-    // return this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this._auth.loginWithGoogle().then((data) => {
       this.router.navigate([''])
     });
