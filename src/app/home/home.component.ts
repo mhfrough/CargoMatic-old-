@@ -10,8 +10,9 @@ import { Subject } from 'rxjs/Subject';
 export class HomeComponent implements OnInit {
 
   constructor(public _auth: AuthService) { }
-
+name: string = '';
   ngOnInit() {
+    console.log(this.name);
   }
 
 }

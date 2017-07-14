@@ -21,7 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MainComponent } from './main/main.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap';
-import { TabsModule } from 'ngx-bootstrap';
+import { TabsModule, TooltipModule } from 'ngx-bootstrap';
 import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
@@ -53,7 +53,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     BsDropdownModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   providers: [AngularFireAuth, AuthService],
   bootstrap: [AppComponent]

@@ -22,10 +22,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  loginFB(){
+    this._auth.loginWithFacebook().then((data) => {
+      this.router.navigate(['']);
+    });
+  }
+
   login(){
     this.alertType = "warning";
     this.alert = true;
-    this.alertMessage = "Method not implemented yet! try Google";
+    this.alertMessage = "Method not implemented yet! Try Facebook or Google login";
+  }
+
+  forgetPassword(){
+    this.alertType = "warning";
+    this.alert = true;
+    this.alertMessage = "Method not implemented yet! Developers working on it";
   }
 
   adminLogin(email: string, password: string) {
@@ -47,6 +59,10 @@ export class LoginComponent implements OnInit {
   logOut() {
     this._auth.logout();
     console.log("out");
+  }
+
+  reset(){
+    this.alert = false;
   }
 
   ngOnInit() {

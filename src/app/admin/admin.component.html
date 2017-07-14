@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      <div class="alert alert-{{ alertType }}" role="alert" *ngIf="alert">
+        <strong class="alertUppercase">{{ alertType }}!</strong>  {{ alertMessage }}
+        <strong class="fr" (click)="reset()">x</strong>
+      </div>
       <div class="panel panel-default">
         <div class="panel-heading">
           AdminPage
@@ -40,6 +44,8 @@
                     <th>Reciving</th>
                     <th>Pioraty</th>
                     <th>Information</th>
+                    <th class="list-group-item-success">$</th>
+                    <th class="status-info list-group-item-info" tooltip="Delivery status!">!</th>
                   </tr>
                 </thead>
                 <tbody class="trHide">
@@ -54,7 +60,10 @@
                     <td>{{ clientPackage.reciving }}</td>
                     <td>{{ clientPackage.pioraty }}</td>
                     <td>{{ clientPackage.information }}</td>
-                    <td><button class="btn btn-link" (click)="delete(clientPackage.$key)">done</button></td>
+                    <td class="list-group-item-success">{{ clientPackage.price }}</td>
+                    <td class="status-info list-group-item-info">
+                      <button class="btn btn-link" (click)="confirm(clientPackage.$key)">{{ clientPackage.status }}</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
