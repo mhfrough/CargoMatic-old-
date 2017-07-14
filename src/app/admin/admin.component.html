@@ -26,6 +26,39 @@
                 </tbody>
               </table>
             </tab>
+            <tab heading="Client Packages" class="p-tap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Origion</th>
+                    <th>Destination</th>
+                    <th>Address</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Total</th>
+                    <th>Departing</th>
+                    <th>Reciving</th>
+                    <th>Pioraty</th>
+                    <th>Information</th>
+                  </tr>
+                </thead>
+                <tbody class="trHide">
+                  <tr *ngFor="let clientPackage of clientPackages | async">
+                    <td>{{ clientPackage.origion }}</td>
+                    <td>{{ clientPackage.destination }}</td>
+                    <td>{{ clientPackage.address }}</td>
+                    <td>{{ clientPackage.type }}</td>
+                    <td>{{ clientPackage.size }}</td>
+                    <td>{{ clientPackage.total }}</td>
+                    <td>{{ clientPackage.departing }}</td>
+                    <td>{{ clientPackage.reciving }}</td>
+                    <td>{{ clientPackage.pioraty }}</td>
+                    <td>{{ clientPackage.information }}</td>
+                    <td><button class="btn btn-link" (click)="delete(clientPackage.$key)">done</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </tab>
             <tab heading="Details" class="p-tap" disabled=true></tab>
           </tabset>
       </div>

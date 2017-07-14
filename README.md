@@ -23,3 +23,5 @@ Pages (Home, About, Contact, Profile)
 Authentication (Email and Google)
 
 Push and Pop (User data: name, email)
+
+Shipping Page (Create, Show)

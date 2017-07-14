@@ -1,13 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      <div class="alert alert-{{ alertType }}" role="alert" *ngIf="alert">
+        <strong>{{ alertType }}!</strong>  {{ alertMessage }}
+        <strong class="fr" (click)="reset()">x</strong>
+      </div>
       <div class="panel panel-default">
         <div class="panel-heading">
           MainPage
         </div>
         <div class="panel-body">
-          <tabset>
-            <tab heading="Shipping" class="p-tap">
+          <tabset #staticTabs>
+            <tab heading="Shipping" class="p-tap" id=1>
               <form class="form-horizontal" role="form" method="POST" (ngSubmit)="shipping(origion.value, destination.value, address.value, type.value, size.value, total.value, departing.value, reciving.value, pioraty.value, information.value)">
                 <input type="hidden" name="_token" value="dYPuS7mefRVdZRtiB49pjf0gOSjRx3quu3IKzX8u">
 
@@ -16,7 +20,7 @@
                   <div class="row">
                     <div class="col-xs-3">
                       <select class="form-control" name="origion" #origion>
-                        <option value="karachi">karachi</option>
+                        <option value="Karachi">karachi</option>
                         <option value="Gwadar">Gwadar</option>
                         <option value="Chiniot">Chiniot</option>
                         <option value="Swabi">Swabi</option>
@@ -57,7 +61,7 @@
                       <select class="form-control fca" name="size" #size>
                         <option>Item Size</option>
                         <option value="Less then 10KG">Less then 10KG</option>
-                        <option value="In Between 10-25KG">In Between 10-25KG</option>
+                        <option value="In Between 10-25KG">Between 10-25KG</option>
                         <option value="More then 25KG">More then 25KG</option>
                         <option value="Undefined">Undefined</option>
                       </select>
@@ -106,23 +110,23 @@
                 </div>
               </form>
             </tab>
-            <tab heading="Package">
+            <tab heading="Package" id=2>
               <table class="table">
                 <thead>
                   <tr>
-                    <th>origion</th>
-                    <th>destination</th>
-                    <th>address</th>
-                    <th>type</th>
-                    <th>size</th>
-                    <th>total</th>
-                    <th>departing</th>
-                    <th>reciving</th>
-                    <th>pioraty</th>
-                    <th>information</th>
+                    <th>Origion</th>
+                    <th>Destination</th>
+                    <th>Address</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Total</th>
+                    <th>Departing</th>
+                    <th>Reciving</th>
+                    <th>Pioraty</th>
+                    <th>Information</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="trHide">
                   <tr *ngFor="let item of items | async">
                     <td>{{ item.origion }}</td>
                     <td>{{ item.destination }}</td>
@@ -138,7 +142,14 @@
                 </tbody>
               </table>
             </tab>
-            <tab heading="Details" disabled=true></tab>
+            <tab heading="Details" id=3>
+              <h4>How it works?</h4><br/>
+              <ul>
+                <li>First place your shipping details at <a (click)="selectTab(0)">Select second tab</a>,</li>
+                <li>After that your process will be submit,</li>
+                <li>You can also check your Shipping history at <a (click)="selectTab(1)">Package tab</a>.</li>
+              </ul><br/>
+            </tab>
           </tabset>
       </div>
     </div>

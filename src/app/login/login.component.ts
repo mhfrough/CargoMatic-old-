@@ -10,17 +10,33 @@ import * as firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
+  public alert: boolean = false;
+  public alertMessage;
+  public alertType;
+
   constructor(public _auth: AuthService, public router:Router, public app: AppComponent) { }
 
-  login() {
+  loginG() {
     this._auth.loginWithGoogle().then((data) => {
       this.router.navigate([''])
     });
   }
 
+  login(){
+    this.alertType = "warning";
+    this.alert = true;
+    this.alertMessage = "Method not implemented yet! try Google";
+  }
+
   adminLogin(email: string, password: string) {
     this._auth.loginWithEmail(email, password).then((data) => {
+      this.alert = false;
       this.router.navigate(['']);
+    }).catch((e) => {
+      this.alertType = "danger";
+      this.alert = true;
+      console.log(e);
+      this.alertMessage = e.message;
     });
   }
 
